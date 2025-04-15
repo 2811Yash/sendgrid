@@ -1,25 +1,25 @@
-// const draft ={
-//     from:{email:"senders email"},
-//     personalizations:[
-//         {
-//             to : [{email:"receiver",name:"name"}],
-//             dynamic_template_data:{"name":"Yash patil"}
-//         }
-//     ],
-//     template_id:"custom template id"
-// };
+
 const express = require('express');
 const cors = require('cors');
-
-
 const sgMail = require('@sendgrid/mail');
 require('dotenv').config();
 
 const app = express();
 const PORT = 5000;
+const allowedOrigins = [
+  'https://sendgrid-yash-santosh-patils-projects.vercel.app/',
+  'https://sendgrid-yash-santosh-patils-projects.vercel.app',
+  'http://localhost:3000' // for development
+];
 
 app.use(cors({
-  origin: 'https://sendgrid-yash-santosh-patils-projects.vercel.app'
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 app.use(express.json());
