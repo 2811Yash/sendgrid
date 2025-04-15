@@ -19,7 +19,7 @@ const app = express();
 const PORT = 5000;
 
 app.use(cors({
-  origin: 'https://sendgrid-yash-santosh-patils-projects.vercel.app/'
+  origin: 'https://sendgrid-yash-santosh-patils-projects.vercel.app'
 }));
 
 app.use(express.json());
