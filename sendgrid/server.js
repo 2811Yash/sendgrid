@@ -27,8 +27,8 @@ app.use(express.json());
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.post('/send-emails', async (req, res) => {
-  console.log("started backend request");
-  req.res.send("hello");
+  // console.log("started backend request");
+  // req.res.send("hello");
   const emails = req.body.emails;
   if (!emails || !Array.isArray(emails)) {
     return res.status(400).json({ error: 'Invalid emails array' });
