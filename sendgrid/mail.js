@@ -10,13 +10,18 @@
 // };
 const express = require('express');
 const cors = require('cors');
+
+
 const sgMail = require('@sendgrid/mail');
 require('dotenv').config();
 
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://sendgrid-yash-santosh-patils-projects.vercel.app/'
+}));
+
 app.use(express.json());
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
