@@ -25,7 +25,7 @@ export default function Home() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://sendgrid-qyoy.vercel.app/send-emails', {
+      const response = await fetch('https://sendgrid-ax0i.onrender.com/send-emails', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emails }),
